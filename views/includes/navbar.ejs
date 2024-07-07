@@ -1,0 +1,110 @@
+<style>
+        
+        
+        .search-btn {
+            background-color: #fe424d;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            border-radius: 25px;
+            text-align: center;
+            margin-bottom: 0.2rem;
+            margin-top: 0.1rem;
+            padding: 0 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-btn:hover {
+            background-color: #e73a44;
+        }
+        
+        .find {
+            margin-right: 0.5rem;
+        }
+        
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #dddddd;
+        }
+        
+        .navbar-brand {
+            color: #000;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+        
+        .navbar-toggler {
+            border: none;
+            background: none;
+        }
+        
+        .navbar-toggler-icon {
+            font-size: 1.25rem;
+        }
+        
+        .navbar-nav .nav-link {
+            color: #000;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #fe424d;
+        }
+        
+        .form-control {
+            border-radius: 25px;
+            border: 1px solid #dddddd;
+            padding: 0.5rem 1rem;
+            width: 250px; /* Increased width */
+            transition: border-color 0.3s;
+            text-align: center; /* Center align text */
+        }
+        
+        .form-control::placeholder {
+            text-align: center; /* Center align placeholder text */
+        }
+        
+        .form-control:focus {
+            border-color: #fe424d;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+                <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="/listings">Explore</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search Destinations">
+                        <button class="btn search-btn" type="submit">
+                            <i class="fa-solid fa-magnifying-glass find"></i> Search
+                        </button>
+                    </form>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="/listings/new">Create New Listing</a>
+                    <% if (!currUser) { %>
+                    <a class="nav-link" href="/signup"><b>Sign up</b></a>
+                    <a class="nav-link" href="/login"><b>Log in</b></a>
+                    <% } %>
+                    <% if (currUser) { %>
+                    <a class="nav-link" href="/logout"><b>Log Out</b></a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
